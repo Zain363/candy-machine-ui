@@ -25,11 +25,12 @@ import {
   mintOneToken,
   SetupState,
 } from "./candy-machine";
-import { AlertState, formatNumber, getAtaForMint, toDate } from "./utils";
+import { AlertState, getAtaForMint, toDate } from "./utils";
 import { MintCountdown } from "./MintCountdown";
 import { MintButton } from "./MintButton";
 import { GatewayProvider } from "@civic/solana-gateway-react";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
+import CountDownTimer from "./CountDownTimer";
 
 const ConnectButton = styled(WalletDialogButton)`
   width: 100%;
@@ -508,9 +509,12 @@ const Home = (props: HomeProps) => {
                   justifyContent="center"
                   wrap="nowrap"
                 >
-                  <Grid item xs={3}>
+                  <Grid item xs={6}>
                     <Typography variant="body2" color="textSecondary">
-                      Remaining
+                    <div> 
+                     {/* <div> Remaining </div> */}
+                     <div>  Supply: </div>
+                     </div>
                     </Typography>
                     <Typography
                       variant="h6"
@@ -519,25 +523,47 @@ const Home = (props: HomeProps) => {
                         fontWeight: "bold",
                       }}
                     >
-                      {`${itemsRemaining}`}
+                        
+        <CountDownTimer seconds={2222}/>
+       
                     </Typography>
                   </Grid>
-                  <Grid item xs={4}>
+                  {/* <Grid item xs={3}>
                     <Typography variant="body2" color="textSecondary">
-                      {isWhitelistUser && discountPrice
-                        ? "Discount Price"
-                        : "Price"}
+                      Remaining
                     </Typography>
-                    <Typography
+                  <Typography
                       variant="h6"
                       color="textPrimary"
                       style={{ fontWeight: "bold" }}
                     >
+                  <div>
+        <CountDownTimer hours={1} minutes={20} seconds={40}/>
+        </div>
+        </Typography>
+        </Grid> */}
+
+                  <Grid item xs={6}>
+                    <Typography variant="body2" color="textSecondary">
                       {isWhitelistUser && discountPrice
+                        ? "Discount Price"
+                        : " Mint"}
+                        <div>Price:</div>
+                    </Typography>
+                    <Typography
+                      variant="h6"
+                      color="textPrimary"
+                      style={{ fontWeight: "bold"}}
+                    >
+                      {/* {isWhitelistUser && discountPrice
                         ? `◎ ${formatNumber.asNumber(discountPrice)}`
                         : `◎ ${formatNumber.asNumber(
                             candyMachine.state.price
-                          )}`}
+                          )}`} */}
+                         
+                          <div>
+                           ◎ 0 SOL
+                           </div>
                     </Typography>
                   </Grid>
                   <Grid item xs={5}>
