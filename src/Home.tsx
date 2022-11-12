@@ -524,7 +524,7 @@ const Home = (props: HomeProps) => {
                       }}
                     >
                         
-        <CountDownTimer seconds={2222}/>
+        <CountDownTimer seconds={5555}/>
        
                     </Typography>
                   </Grid>
